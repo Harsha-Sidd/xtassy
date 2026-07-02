@@ -137,7 +137,9 @@ The client derives its encryption key via `crypto.subtle.deriveKey`. Passphrase 
 ## ⚡ Ring Clearance Proof-of-Work (PoW)
 
 Xtassy uses a local client-side Hashcash implementation to control access rings. This limits abuse and rate-limits connections programmatically.
-$$\text{Hash} = \text{SHA256}(\text{username} + \text{"\_ring"} + \text{targetRing} + \text{"\_"} + \text{nonce})$$
+```
+Hash = SHA256(username + "_ring" + targetRing + "_" + nonce)
+```
 
 The client increments the $\text{nonce}$ until the resulting Hex string starts with the designated difficulty threshold:
 
